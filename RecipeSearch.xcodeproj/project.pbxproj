@@ -19,6 +19,8 @@
 		57E9869F239F3AC5002C7C7B /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9869C239F3AC5002C7C7B /* UIImageView+Extensions.swift */; };
 		57E986A5239F3BF4002C7C7B /* RecipeSearchAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E986A4239F3BF4002C7C7B /* RecipeSearchAPITests.swift */; };
 		B7A42C8A23A0071800DDA351 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A42C8923A0071800DDA351 /* SecretKey.swift */; };
+		B7A42C8C23A011F100DDA351 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A42C8B23A011F100DDA351 /* Recipe.swift */; };
+		B7A42C8E23A012D500DDA351 /* RecipeSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A42C8D23A012D500DDA351 /* RecipeSearchAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		57E9869C239F3AC5002C7C7B /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		57E986A4239F3BF4002C7C7B /* RecipeSearchAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchAPITests.swift; sourceTree = "<group>"; };
 		B7A42C8923A0071800DDA351 /* SecretKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
+		B7A42C8B23A011F100DDA351 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		B7A42C8D23A012D500DDA351 /* RecipeSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			children = (
 				57E9869A239F3AC5002C7C7B /* AppError.swift */,
 				57E98699239F3AC5002C7C7B /* NetworkHelper.swift */,
+				B7A42C8D23A012D500DDA351 /* RecipeSearchAPI.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 		57E986A2239F3B0D002C7C7B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B7A42C8B23A011F100DDA351 /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,6 +284,8 @@
 				B7A42C8A23A0071800DDA351 /* SecretKey.swift in Sources */,
 				57E98677239F3A8D002C7C7B /* AppDelegate.swift in Sources */,
 				57E98679239F3A8D002C7C7B /* SceneDelegate.swift in Sources */,
+				B7A42C8E23A012D500DDA351 /* RecipeSearchAPI.swift in Sources */,
+				B7A42C8C23A011F100DDA351 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

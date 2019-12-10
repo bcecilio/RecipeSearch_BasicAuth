@@ -10,6 +10,31 @@ import XCTest
 @testable import RecipeSearch
 
 class RecipeSearchAPITests: XCTestCase {
-
+    
+    func testSearchChristmasCookies() {
+        
+        // convert string to a url friendly string
+        let searchQuery = "christmas cookies".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let exp = XCTestExpectation(description: "search not found")
+        let recipeEndpointURL = "https://api.edamam.com/search?q=\(searchQuery)&app_id=\(SecretKey.appId)&app_key=\(SecretKey.appkey)"
+        
+        let request = URLRequest(url: URL(string: recipeEndpointURL)!)
+        
+        // act
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            switch result {
+            case .failure(let appError):
+                XCTFail("appError: \(appError)")
+            case .success(let data):
+                exp.fulfill()
+                // assert
+                XCTAssertGreaterThan(data.count, 80000, "data shold be graeter than \(data.count)")
+            }
+        }
+        wait(for: [exp], timeout: 5.0)
+    }
+    
+    // TODO: write an async test to validate you do get back 50 recipes for the
+    // "christmas cookies" search from the getRecipes func
 
 }
