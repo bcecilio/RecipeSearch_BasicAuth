@@ -18,7 +18,6 @@
 		57E9869E239F3AC5002C7C7B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9869A239F3AC5002C7C7B /* AppError.swift */; };
 		57E9869F239F3AC5002C7C7B /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9869C239F3AC5002C7C7B /* UIImageView+Extensions.swift */; };
 		57E986A5239F3BF4002C7C7B /* RecipeSearchAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E986A4239F3BF4002C7C7B /* RecipeSearchAPITests.swift */; };
-		B7A42C8723A005B900DDA351 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A42C8623A005B900DDA351 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,6 @@
 		57E9869A239F3AC5002C7C7B /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		57E9869C239F3AC5002C7C7B /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		57E986A4239F3BF4002C7C7B /* RecipeSearchAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchAPITests.swift; sourceTree = "<group>"; };
-		B7A42C8623A005B900DDA351 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +87,6 @@
 		57E98675239F3A8D002C7C7B /* RecipeSearch */ = {
 			isa = PBXGroup;
 			children = (
-				B7A42C8523A0055500DDA351 /* Secrets */,
 				57E98698239F3AC5002C7C7B /* Network Services */,
 				57E986A2239F3B0D002C7C7B /* Models */,
 				57E986A3239F3B18002C7C7B /* Views */,
@@ -160,14 +157,6 @@
 			children = (
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B7A42C8523A0055500DDA351 /* Secrets */ = {
-			isa = PBXGroup;
-			children = (
-				B7A42C8623A005B900DDA351 /* Secrets.swift */,
-			);
-			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +262,6 @@
 			files = (
 				57E9869F239F3AC5002C7C7B /* UIImageView+Extensions.swift in Sources */,
 				57E9869D239F3AC5002C7C7B /* NetworkHelper.swift in Sources */,
-				B7A42C8723A005B900DDA351 /* Secrets.swift in Sources */,
 				57E9867B239F3A8D002C7C7B /* RecipeSearchController.swift in Sources */,
 				57E9869E239F3AC5002C7C7B /* AppError.swift in Sources */,
 				57E98677239F3A8D002C7C7B /* AppDelegate.swift in Sources */,
