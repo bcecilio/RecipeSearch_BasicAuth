@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H3u-3l-ooo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="RlQ-Gi-YYI">
@@ -29,17 +29,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Tn9-vQ-AOu">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="H3u-3l-ooo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fm5-xd-oy9"/>
-                            <constraint firstItem="H3u-3l-ooo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GLu-y7-k7s"/>
-                            <constraint firstItem="H3u-3l-ooo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WCs-0r-vi7"/>
-                            <constraint firstAttribute="bottom" secondItem="H3u-3l-ooo" secondAttribute="bottom" id="Wjg-g7-9sa"/>
+                            <constraint firstItem="H3u-3l-ooo" firstAttribute="top" secondItem="Tn9-vQ-AOu" secondAttribute="bottom" id="CZl-R2-XvQ"/>
+                            <constraint firstItem="H3u-3l-ooo" firstAttribute="top" secondItem="Tn9-vQ-AOu" secondAttribute="bottom" id="GhO-aU-UJe"/>
+                            <constraint firstItem="Tn9-vQ-AOu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Msq-zf-Iyj"/>
+                            <constraint firstItem="Tn9-vQ-AOu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UMS-hq-fHi"/>
+                            <constraint firstItem="H3u-3l-ooo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Z9s-h5-ARw"/>
+                            <constraint firstAttribute="bottom" secondItem="H3u-3l-ooo" secondAttribute="bottom" id="pT0-GR-Pq9"/>
+                            <constraint firstItem="H3u-3l-ooo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wB1-CJ-uRE"/>
+                            <constraint firstItem="Tn9-vQ-AOu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="z1F-Yp-rGh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="6cJ-L4-LXg"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Tn9-vQ-AOu" id="z7x-tR-Wua"/>
+                        <outlet property="tableView" destination="H3u-3l-ooo" id="7HN-LT-svJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

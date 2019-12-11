@@ -28,7 +28,7 @@ class RecipeSearchAPITests: XCTestCase {
             case .success(let data):
                 exp.fulfill()
                 // assert
-                XCTAssertGreaterThan(data.count, 80000, "data shold be graeter than \(data.count)")
+                XCTAssertGreaterThan(data.count, 80000, "data should be greater than \(data.count)")
             }
         }
         wait(for: [exp], timeout: 5.0)
@@ -36,5 +36,22 @@ class RecipeSearchAPITests: XCTestCase {
     
     // TODO: write an async test to validate you do get back 50 recipes for the
     // "christmas cookies" search from the getRecipes func
+    func testFetchRecipes() {
+        let expectedRecipeCount = 50
+        let exp = XCTestExpectation(description: "recipes found")
+        let searchQuery = "christmas cookies"
+        
+        RecipeSearchAPI.fetchRecipe(for: searchQuery) { (result) in
+            switch result {
+            case . failure(let appError):
+                XCTFail("app error: \(appError)")
+            case .success(let recipes):
+                exp.fulfill()
+                XCTAssertEqual(recipes.count, expectedRecipeCount)
+            }
+        }
+        
+        wait(for: [exp], timeout: 5.0)
+    }
 
 }
