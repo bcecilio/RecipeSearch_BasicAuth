@@ -9,11 +9,10 @@
 import UIKit
 
 class RecipeSearchController: UIViewController {
-    // TODO: we need a tableView
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    // TODO: we need recipes array
-    // TODO: didSet{} in the recipes array to update the tableView
+
     var recipeArr = [Recipe]() {
         didSet {
             DispatchQueue.main.async {
@@ -22,40 +21,23 @@ class RecipeSearchController: UIViewController {
         }
     }
     
-    var searchQuery = "" {
-        didSet{
-            DispatchQueue.main.async {
-                self.searchBarQuery()
-            }
-        }
-    }
+    var searchQuery = ""
     
     override func viewDidLoad() {
         tableView.dataSource = self
+        tableView.delegate = self 
         searchBar.delegate = self
-        loadData()
+        loadData(searchQuery: "christmas cookies")
+        navigationItem.title = "Recipe Search"
     }
-    // TODO: in cellForRow show the recipes label
-    // TODO: RecipesSearchAPI.fetchRecipes accessing data to populate ur recipes array (expects a String)
     
-    func loadData() {
-        RecipeSearchAPI.fetchRecipe(for: "cookies   ") { [weak self] (result) in
+    func loadData(searchQuery: String) {
+        RecipeSearchAPI.fetchRecipe(for: searchQuery) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print("app error: \(appError)")
             case .success(let recipes):
                 self?.recipeArr = recipes
-            }
-        }
-    }
-    
-    func searchBarQuery() {
-        RecipeSearchAPI.fetchRecipe(for: searchQuery) { (result) in
-            switch result {
-            case .failure(let appError):
-                print("app error \(appError)")
-            case .success(let filteredRecipes):
-                self.recipeArr = filteredRecipes.filter{$0.label.lowercased().contains(self.searchQuery.lowercased())}
             }
         }
     }
@@ -67,21 +49,30 @@ extension RecipeSearchController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeCell else {
+            fatalError("could not dequeue a recipeCell")
+        }
         
         let recipeCell = recipeArr[indexPath.row]
-        cell.textLabel?.text = recipeCell.label
+        cell.configureCell(for: recipeCell)
         return cell
     }
 }
 
+extension RecipeSearchController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 400
+    }
+}
+
 extension RecipeSearchController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else {
-            searchBarQuery()
-            loadData()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        // here we will use a guard let to unwrap the searchBar.text property because it is an optional.
+        guard let searchText = searchBar.text else {
+            print("missing search text")
             return
         }
-        searchQuery = searchText
+        loadData(searchQuery: searchText)
     }
 }

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recipe Search Controller-->
+        <!--Recipe Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RecipeSearchController" customModule="RecipeSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,17 +19,54 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" id="RlQ-Gi-YYI">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeCell" rowHeight="303" id="RlQ-Gi-YYI" customClass="RecipeCell" customModule="RecipeSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="303"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RlQ-Gi-YYI" id="Ust-Oo-Vqo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="303"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jNz-yg-Oec">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="303"/>
+                                                </imageView>
+                                                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBF-Iy-3sU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="303"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIB-Iw-Aqa">
+                                                            <rect key="frame" x="20" y="139" width="374" height="25"/>
+                                                            <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="22"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="bIB-Iw-Aqa" firstAttribute="centerY" secondItem="JBF-Iy-3sU" secondAttribute="centerY" id="AiB-Ab-z4g"/>
+                                                        <constraint firstItem="bIB-Iw-Aqa" firstAttribute="leading" secondItem="JBF-Iy-3sU" secondAttribute="leading" constant="20" id="Ant-LK-9jI"/>
+                                                        <constraint firstAttribute="trailing" secondItem="bIB-Iw-Aqa" secondAttribute="trailing" constant="20" id="GIQ-P0-1Yz"/>
+                                                        <constraint firstItem="bIB-Iw-Aqa" firstAttribute="centerX" secondItem="JBF-Iy-3sU" secondAttribute="centerX" id="O6i-8r-sS3"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JBF-Iy-3sU" firstAttribute="top" secondItem="Ust-Oo-Vqo" secondAttribute="top" id="2v8-Z4-8FM"/>
+                                                <constraint firstAttribute="trailing" secondItem="JBF-Iy-3sU" secondAttribute="trailing" id="AvX-nJ-1SL"/>
+                                                <constraint firstItem="jNz-yg-Oec" firstAttribute="top" secondItem="Ust-Oo-Vqo" secondAttribute="top" id="BjO-tk-7zY"/>
+                                                <constraint firstAttribute="bottom" secondItem="JBF-Iy-3sU" secondAttribute="bottom" id="C5A-3i-H0Z"/>
+                                                <constraint firstItem="jNz-yg-Oec" firstAttribute="leading" secondItem="Ust-Oo-Vqo" secondAttribute="leading" id="GpA-IG-Qa3"/>
+                                                <constraint firstItem="JBF-Iy-3sU" firstAttribute="leading" secondItem="Ust-Oo-Vqo" secondAttribute="leading" id="JUR-7p-8Hn"/>
+                                                <constraint firstAttribute="bottom" secondItem="jNz-yg-Oec" secondAttribute="bottom" id="e8v-Kc-SZD"/>
+                                                <constraint firstAttribute="trailing" secondItem="jNz-yg-Oec" secondAttribute="trailing" id="hJE-b4-oat"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recipeImageView" destination="jNz-yg-Oec" id="8lt-PF-Z4i"/>
+                                            <outlet property="recipeLabel" destination="bIB-Iw-Aqa" id="SL2-BB-3IU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Tn9-vQ-AOu">
+                            <searchBar contentMode="redraw" placeholder="Search for Recipes" translatesAutoresizingMaskIntoConstraints="NO" id="Tn9-vQ-AOu">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -47,7 +84,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6cJ-L4-LXg"/>
+                    <navigationItem key="navigationItem" title="Recipe Search" id="6cJ-L4-LXg"/>
                     <connections>
                         <outlet property="searchBar" destination="Tn9-vQ-AOu" id="z7x-tR-Wua"/>
                         <outlet property="tableView" destination="H3u-3l-ooo" id="7HN-LT-svJ"/>
